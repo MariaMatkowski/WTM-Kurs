@@ -13,7 +13,7 @@ Obj Wohnung
   var location
   
 Obj Job 
-  var Netto-earning
+  var nettoEarning
   
 Obj Kredit
   var monthlyRate
