@@ -4,13 +4,15 @@ const credit = require('./credit')
 
 
 
-const BerlinerTraumwohnung = new flat("Steve", 30);
-const miri = new Person("Miri", 22);
 
-const instructors = [me, miri];
+const Traumwohnung = new flat("Mitte", "75", 250000);
+const alternativWohnung = new flat("Charlottenburg", "65", 260000);
 
-Database.save(instructors);
+const possibleFlats = [Traumwohnung, alternativWohnung];
 
+Database.save(possibleFlats);
+
+console.log(Traumwohnung);
 
 var total=0, count=1;
 while (count<=10) {
@@ -18,5 +20,4 @@ while (count<=10) {
     count += 1; 
 }
 
-//console.log(total);  Funktioniert das auch?
- 
+console.log(total);
