@@ -18,5 +18,5 @@ while (count<=10) {
     count += 1; 
 }
 
-//console.log(total);
+//console.log(total);  Funktioniert das auch?
  
