@@ -19,3 +19,4 @@ while (count<=10) {
 }
 
 console.log(total);
+ 
