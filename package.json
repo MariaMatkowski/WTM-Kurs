@@ -1,0 +1,25 @@
+{
+  "name": "2017-wtm",
+  "version": "1.0.0",
+  "description": "kurs js json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaMatkowski/WTM-Kurs.git"
+  },
+  "keywords": [
+    "js",
+    "json",
+    "wtm",
+    "databases"
+  ],
+  "author": "Maria Matkowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariaMatkowski/WTM-Kurs/issues"
+  },
+  "homepage": "https://github.com/MariaMatkowski/WTM-Kurs#readme"
+}
