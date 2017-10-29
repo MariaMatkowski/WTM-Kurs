@@ -7,4 +7,10 @@ module.exports = class job {
         this.jobTitle =jobTitle;
         this.nettoEarning = nettoEarning;
     }
+    sayName(){
+        console.log(this.jobTitle)
+    }
+    static create(obj){
+        return new job(obj.jobTitle, obj.nettoEarning)
+    }
 }

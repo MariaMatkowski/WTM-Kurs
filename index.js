@@ -14,7 +14,11 @@ database.save(possibleFlats);
 
 const loadedFile = database.load();
 
-console.log(loadedFile[0].location);
+const showFlat = flat.create(loadedFile[1]);
+
+showFlat.sayLocation();
+
+//console.log(loadedFile[0].location);
 
 
 const job1 = new job("Controller",30000);
@@ -27,7 +31,12 @@ databaseJob.save(jobs);
  
 const loadedFile2 = databaseJob.load();
 
-console.log(loadedFile2[1].jobTitle);
+const showJob = job.create(loadedFile2[1]);
+
+showJob.sayName();
+
+//console.log(loadedFile2[1].jobTitle);
+
 
 
 /*

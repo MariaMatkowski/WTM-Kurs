@@ -7,4 +7,7 @@ module.exports = class flat {
     sayLocation (){
         console.log(this.location)
     }
+    static create(obj){
+        return new flat(obj.location, obj.size, obj.price)
+    }
 }
