@@ -3,7 +3,8 @@
 //nettoEarning
 
 module.exports = class job {
-    constructor(nettoEarning){
+    constructor(jobTitle, nettoEarning){
+        this.jobTitle =jobTitle;
         this.nettoEarning = nettoEarning;
     }
 }

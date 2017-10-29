@@ -2,18 +2,33 @@ const flat = require('./flat')
 const job = require('./job')
 const credit = require('./credit')
 const database = require('./database')
-
+const databaseJob = require ('./database-job')
 
 const Traumwohnung = new flat("Mitte", "75", 250000);
-const alternativWohnung = new flat("Charlottenburg", "65", 260000);
+const Wohnung2 = new flat("Charlottenburg", "65", 260000);
+const Wohnung3 = new flat ("Moabit", "56",200000);
 
-const possibleFlats = [Traumwohnung, alternativWohnung];
+const possibleFlats = [Traumwohnung, Wohnung2, Wohnung3];
 
-Database.save(possibleFlats);
+database.save(possibleFlats);
 
 const loadedFile = database.load();
 
 console.log(loadedFile[0].location);
+
+
+const job1 = new job("Controller",30000);
+const job2 = new job("Unternehmerin",20000);
+const job3 = new job("Developer",60000);
+
+const jobs = [job1,job2,job3];
+
+databaseJob.save(jobs);
+ 
+const loadedFile2 = databaseJob.load();
+
+console.log(loadedFile2[1].jobTitle);
+
 
 /*
 console.log(Traumwohnung);

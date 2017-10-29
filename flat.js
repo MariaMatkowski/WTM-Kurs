@@ -4,4 +4,7 @@ module.exports = class flat {
         this.size = size;
         this.price = price;
     }
+    sayLocation (){
+        console.log(this.location)
+    }
 }
