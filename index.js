@@ -14,9 +14,9 @@ database.save(possibleFlats);
 
 const loadedFile = database.load();
 
-const showFlat = flat.create(loadedFile[1]);
+const showFlat = loadedFile.map(flat.create);
 
-showFlat.sayLocation();
+showFlat[0].sayLocation();
 
 //console.log(loadedFile[0].location);
 
