@@ -3,14 +3,43 @@ const job = require('./job')
 const credit = require('./credit')
 
 
-var temps = [20,18,26,30]
+var students = [
+    {
+        name: 'Steve D.',
+        grade1: 84,
+        grade2: 66
+    },
+    {
+        name: 'Doris D.',
+        grade1: 90,
+        grade2: 55
+    },
+    {
+        name: 'Steve D.',
+        grade1: 77,
+        grade2: 62
+    }
+]
 
-var newTemps = temps.map(function(tempF){
-    return Math.round (tempF * (9/5) +32);
-})
+var passingGrade = 70;
 
-console.log(temps);
-console.log(newTemps);
+var results = students.map (function(student) {
+    var average = (student.grade1 + student.grade2)/2;
+    if (average > passingGrade) {
+        return {
+            name: student.name,
+            passed:true
+        };
+    } else {
+        return {
+            name: student.name,
+            passed:false
+        };
+    }
+});
+
+console.log(students);
+console.log(results);
 
 /*
 const Traumwohnung = new flat("Mitte", "75", 250000);
