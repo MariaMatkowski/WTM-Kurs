@@ -1,7 +1,32 @@
 const flat = require('./flat')
 const job = require('./job')
 const credit = require('./credit')
+const database = require('./database')
 
+
+const Traumwohnung = new flat("Mitte", "75", 250000);
+const alternativWohnung = new flat("Charlottenburg", "65", 260000);
+
+const possibleFlats = [Traumwohnung, alternativWohnung];
+
+Database.save(possibleFlats);
+
+const loadedFile = database.load();
+
+console.log(loadedFile[0].location);
+
+/*
+console.log(Traumwohnung);
+
+var total=0, count=1;
+while (count<=10) {
+    total += count;
+    count += 1; 
+}
+
+console.log(total);
+
+---------
 
 var students = [
     {
@@ -40,22 +65,4 @@ var results = students.map (function(student) {
 
 console.log(students);
 console.log(results);
-
-/*
-const Traumwohnung = new flat("Mitte", "75", 250000);
-const alternativWohnung = new flat("Charlottenburg", "65", 260000);
-
-const possibleFlats = [Traumwohnung, alternativWohnung];
-
-Database.save(possibleFlats);
-
-console.log(Traumwohnung);
-
-var total=0, count=1;
-while (count<=10) {
-    total += count;
-    count += 1; 
-}
-
-console.log(total);
 */
