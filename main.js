@@ -10,3 +10,7 @@ myRequest.send();
 
 
 //https://learnwebcode.github.io/json-example/animals-1.json
+
+window.addEventListener('click',(event) => {
+    alert('hello')
+})
