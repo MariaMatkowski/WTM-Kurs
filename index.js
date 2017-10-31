@@ -10,9 +10,13 @@ const Wohnung3 = new flat ("Moabit", "56",200000);
 
 const possibleFlats = [Traumwohnung, Wohnung2, Wohnung3];
 
-database.save(possibleFlats);
+database.save(possibleFlats, (err) => {
+    console.log("Hey")
+});
 
-const loadedFile = database.load();
+console.log("ich bin schneller")
+
+/*const loadedFile = database.load();
 
 const showFlat = loadedFile.map(flat.create);
 
@@ -36,7 +40,7 @@ const showJob = job.create(loadedFile2[1]);
 showJob.sayName();
 
 //console.log(loadedFile2[1].jobTitle);
-
+*/
 
 
 /*

@@ -1,9 +1,11 @@
 const fs = require('fs');
 
-exports.save = (flat) => {
-    fs.writeFileSync('./data.json', JSON.stringify(flat));
+exports.save = (flat,cb) => {
+    setTimeout(() => {
+        fs.writeFile('./data.json', JSON.stringify(flat),cb);
+    }, 5000);
 }
 
 exports.load = () => {
-    return JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+    return JSON.parse(fs.readFile('./data.json', 'utf8'));
 }
