@@ -44,6 +44,8 @@ showJob.sayName();
 
 
 /*
+----------------
+
 console.log(Traumwohnung);
 
 var total=0, count=1;
