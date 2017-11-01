@@ -19,9 +19,14 @@ console.log("ich bin schneller")
 
 const fs = require ('fs');
 
-const text1 = fs.readFileSync('./files/1.txt', 'utf8');
+/*
+const textfiles = [1, 2, 3]    //array of objects of people etc.
+    .map(number => `./files/${number}.txt`)  //map them to new strings
+    .map(filename => fs.readFileSync (filename, 'utf8'))   //map them to function to get their properties
 
-console.log(text1);
+console.log(textfiles); */
+
+fs.readFile('./files/3.txt', 'utf8', (err, contents) => console.log(contents))
 
 
 
