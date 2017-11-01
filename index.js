@@ -1,4 +1,4 @@
-const flat = require('./flat')
+/*const flat = require('./flat')
 const job = require('./job')
 const credit = require('./credit')
 const database = require('./database')
@@ -11,10 +11,19 @@ const Wohnung3 = new flat ("Moabit", "56",200000);
 const possibleFlats = [Traumwohnung, Wohnung2, Wohnung3];
 
 database.save(possibleFlats, (err) => {
-    console.log("Hey")
+    console.log(err)
 });
 
 console.log("ich bin schneller")
+*/ 
+
+const fs = require ('fs');
+
+const text1 = fs.readFileSync('./files/1.txt', 'utf8');
+
+console.log(text1);
+
+
 
 /*const loadedFile = database.load();
 
