@@ -45,17 +45,16 @@ const readFile = (filename) => {
     return new Promise((resolve, reject) => {        //promise is a callbackfunction with 2 parameters, callback to read file
     fs.readFile(filename, 'utf8',(err, contents) => {
         if (err) return reject (err);
-        else (contents) return resolve(contents)
         )};
     )};
 }
 
 
 const textfiles = [1, 2, 3]    //array of objects of people etc.
-.map(number => `./files/${number}.txt`) 
-
+.map(number => `./files/${number}.txt`)  //storing files in an array
 
 readFile(textfiles[0])
+    .then(console.log)
 
 
 /*const loadedFile = database.load();
