@@ -26,8 +26,36 @@ const textfiles = [1, 2, 3]    //array of objects of people etc.
 
 console.log(textfiles); */
 
-fs.readFile('./files/3.txt', 'utf8', (err, contents) => console.log(contents))
 
+
+//asynchronious with callback
+/*fs.readFile('./files/1.txt', 'utf8', (err, contents) => {
+    console.log(contents)
+    fs.readFile('./files/2.txt', 'utf8', (err, contents) => {
+        console.log(contents)
+    })  */
+/*
+readFile(file1)
+    .then (() => readFile(file2))  //first I read 1 file, then second => readFile function promises to give content of file1
+    .then (() => readFile(file3))
+    .then (() => console.log('finished'))
+*/
+
+const readFile = (filename) => {
+    return new Promise((resolve, reject) => {        //promise is a callbackfunction with 2 parameters, callback to read file
+    fs.readFile(filename, 'utf8',(err, contents) => {
+        if (err) return reject (err);
+        else (contents) return resolve(contents)
+        )};
+    )};
+}
+
+
+const textfiles = [1, 2, 3]    //array of objects of people etc.
+.map(number => `./files/${number}.txt`) 
+
+
+readFile(textfiles[0])
 
 
 /*const loadedFile = database.load();
