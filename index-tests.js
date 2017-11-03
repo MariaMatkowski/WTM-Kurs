@@ -51,4 +51,40 @@ while(summe<5) {
     document.write(summe.toFixed(2) + "<br>");
 }
 
-/*----------------------------- Zahlenraten: Generator gibt Zahl 1 - 100 ------------------------------ */
+/*----------------------------- Zahlenraten: Generator gibt Zahl 1 - 100 > Do...While - Loop :) ------------------------------ */
+
+var zufall = Math.random()*100+1;
+var zGanz = Math.floor(zufall);
+var eingabe;
+var zahl;
+var nr=0;
+var abbruch = false;
+
+do 
+{
+    nr++;
+    eingabe = prompt(nr + ') ' + 'Zahl zwischen 1 und 100 eingeben');
+    
+    //abgebrochen?
+    if(eingabe==null) {
+        abbruch=true;
+        break;
+    }
+    
+    //auswerten
+    zahl = parseInt(eingabe);
+    if (zahl< zGanz)
+    alert( nr + ') ' + zahl + ' ist zu klein<br>');
+    else if (zahl > zGanz)
+    alert( nr + ') ' + zahl + ' ist zu groß')
+}
+while (eingabe != zGanz);
+
+//Ergebnis
+if (abbruch)
+    alert('Sie haben abgebrochen');
+else 
+    alert(nr + ') ' + zahl + ' ist richtig!'
+    + 'Sie haben ' + nr + ' Versuche benötigt');
+
+/*----------------------------------------------------------------------------------------------------- */
