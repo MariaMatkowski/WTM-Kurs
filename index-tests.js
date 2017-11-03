@@ -4,7 +4,7 @@ var grösser = (a>b)?a:b;
     document.write('a: ' + a + '<br>' + 'b: ' + b + '<br>');
     document.write('Die größere Zahl ist: ' + grösser);
 
-/*-----------------------------------------------------------------------*/
+/*----------------------Sage ein Land und erhalte die Hauptstadt-----------------------------*/
 
 switch(land) {
         case "Italien":
@@ -19,7 +19,7 @@ switch(land) {
             alert("Hauptstadt des Staates ist uns nicht bekannt");
 }
 
-/* ---------------------------------------------------------------------------*/
+/* ----------------------------Tabelle mit For-Loop --------------------------------------*/
 
 <head>
 <style>
@@ -42,3 +42,13 @@ switch(land) {
     </script>
 </table>
 </body>
+
+/*----------------- Summe Random & while-loop -> Ergebisse auf 2 Kommastellen gerundet ----------------------*/
+
+var summe = 0;
+while(summe<5) {
+    summe += Math.random();
+    document.write(summe.toFixed(2) + "<br>");
+}
+
+/*----------------------------- Zahlenraten: Generator gibt Zahl 1 - 100 ------------------------------ */
