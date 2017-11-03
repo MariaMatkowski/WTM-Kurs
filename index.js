@@ -17,7 +17,7 @@ database.save(possibleFlats, (err) => {
 console.log("ich bin schneller")
 */ 
 
-const fs = require ('fs');
+
 
 /*
 const textfiles = [1, 2, 3]    //array of objects of people etc.
@@ -41,6 +41,10 @@ readFile(file1)
     .then (() => console.log('finished'))
 */
 
+/*  ---------------------------------------------
+
+const fs = require ('fs');
+
 const readFile = (filename) => {
     return new Promise((resolve, reject) => {        //promise is a callbackfunction with 2 parameters, callback to read file
     fs.readFile(filename, 'utf8',(err, contents) => {
@@ -56,6 +60,7 @@ const textfiles = [1, 2, 3]    //array of objects of people etc.
 readFile(textfiles[0])
     .then(console.log)
 
+----------------------------------------------------------------------------------    */
 
 /*const loadedFile = database.load();
 
