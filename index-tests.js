@@ -74,7 +74,7 @@ do
     //auswerten
     zahl = parseInt(eingabe);
     if (zahl< zGanz)
-    alert( nr + ') ' + zahl + ' ist zu klein<br>');
+    alert( nr + ') ' + zahl + ' ist zu klein');
     else if (zahl > zGanz)
     alert( nr + ') ' + zahl + ' ist zu groß')
 }
@@ -87,4 +87,6 @@ else
     alert(nr + ') ' + zahl + ' ist richtig!'
     + 'Sie haben ' + nr + ' Versuche benötigt');
 
-/*----------------------------------------------------------------------------------------------------- */
+/*-------------------------------- Gedächtnisspiel Zahlen merken ----------------------------------------- */
+
+var text, eingabe, laenge=3, zaehler=0;
