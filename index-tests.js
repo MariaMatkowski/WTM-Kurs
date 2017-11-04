@@ -123,3 +123,18 @@ document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
 
 /* -------------------------------------------*/
 
+<head>
+    <script>
+        function fehlerbehandlung(fehler, datei, zeile)
+        {
+            alert('Fehler: ' + fehler + '\nDatei: ' + datei + '\nZeile: ' + zeile);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        window.onerror = fehlerbehandlung;
+        var y = 42;
+        document.write( x + y );
+    </script>
+</body>
