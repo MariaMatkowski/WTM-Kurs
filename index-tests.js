@@ -89,4 +89,37 @@ else
 
 /*-------------------------------- Gedächtnisspiel Zahlen merken ----------------------------------------- */
 
-var text, eingabe, laenge=3, zaehler=0;
+var text;       //zufällige Ziffernfolgen
+var laenge=4;    //gibt 3-stellige Zahlen aus, aktuelle Länge
+var zaehler=0;  //wie häufig ist +1 bis 3 [>3Mal], welche Ziffernfolge (Nr.1, Nr.2 ...)
+var eingabe;
+
+//Ablauf
+do
+{
+    //zaehler = wie viele Zahlen mit laengeX sollen ausgegeben werden 
+    zaehler++
+    if(zaehler>3) {
+        laenge++;
+        zaehler=1;
+    }
+
+//jede Einzelposition ist i
+text = "";
+    for (var i=1; i<laenge; i++) 
+          text += Math.floor(Math.random()*10);
+        alert('Ziffernfolge: ' + text);
+        
+        eingabe = prompt('Ihre Eingabe');
+        document.write(text + '<br>')
+}
+while(eingabe==text)
+
+//Bewertung
+var ergebnis = laenge -1;
+if(ergebnis<3) ergebnis=0; 
+/*nur wenn Länge 3* hintereinander gemerkt wurde, zählt Ergebnis, sonst =0*/
+document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
+
+/* -------------------------------------------*/
+
