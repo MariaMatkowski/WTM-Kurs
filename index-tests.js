@@ -152,21 +152,41 @@ document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
     document.write(anweisung);
 
 
-/*------------------Objekteigenschaften------------*/
+/*------------------Objekteigenschaften ändern------------*/
 
+//HTML
 <script>
-function Segelboot(f,g,h) {
-    this.farbe = f;
-    this.groesse = g;
-    this.personen = h;
-}
-    
+var wave = new Segelboot("blau-weiß",35,8);
+
+document.write("Farbe: " + wave.farbe + "<br>Geschwindigkeit: " + wave.geschwindigkeit + "<br>Personen: " + wave.personen + "<br>");
+
+wave.beschleunigen(15);
+wave.lackieren("Blau");
+
+
+document.write("Farbe: " + wave.farbe + "<br>Geschwindigkeit: " + wave.geschwindigkeit + "<br>Personen: " + wave.personen);
+
 </script>
 
-var Wave = new Segelboot("blau-weiß",15,8);
 
-Wave.personen = 10;
+function Segelboot(f,g,h) {
+    this.farbe = f;
+    this.geschwindigkeit = g;
+    this.personen = h;
+    this.beschleunigen = bootBeschleunigen;
+    this.lackieren = function (f) {this.farbe = f;};
+    this.print = bootAusgeben;
+}
+    
+function bootBeschleunigen(wert) {
+    this.geschwindigkeit += wert;
+}
 
-document.write("Farbe: " + Wave.farbe + "<br>Größe: " + Wave.groesse + "<br>Personen: " +Wave.personen);
+function bootAusgeben() {
+    return "Farbe: " + this.farbe + "Geschwindigkeit: " + this.geschwindigkeit + "Personen: " + this.personen;
+}
 
 /*-------------------------------------------*/
+
+
+
