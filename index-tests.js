@@ -152,4 +152,21 @@ document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
     document.write(anweisung);
 
 
-/*-------------------------------*/
+/*------------------Objekteigenschaften------------*/
+
+<script>
+function Segelboot(f,g,h) {
+    this.farbe = f;
+    this.groesse = g;
+    this.personen = h;
+}
+    
+</script>
+
+var Wave = new Segelboot("blau-weiß",15,8);
+
+Wave.personen = 10;
+
+document.write("Farbe: " + Wave.farbe + "<br>Größe: " + Wave.groesse + "<br>Personen: " +Wave.personen);
+
+/*-------------------------------------------*/
