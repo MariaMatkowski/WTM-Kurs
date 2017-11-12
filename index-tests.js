@@ -121,7 +121,7 @@ if(ergebnis<3) ergebnis=0;
 /*nur wenn Länge 3* hintereinander gemerkt wurde, zählt Ergebnis, sonst =0*/
 document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
 
-/* -------------------------------------------*/
+/* ----------------------zeigt in welcher Zeile der Fehler ist---------------------*/
 
 <head>
     <script>
@@ -138,3 +138,18 @@ document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
         document.write( x + y );
     </script>
 </body>
+
+/*---------------------------Namen ausgeben----------------------*/
+
+    var vorname = "Maia";
+    var anweisung = "document.write('Herzlich Willkommen " + vorname + "<br>');";
+    eval(anweisung);
+    
+//oder so
+
+    var vorname = "Maia";
+    var anweisung = "Herzlich Willkommen " + vorname + "<br>";
+    document.write(anweisung);
+
+
+/*-------------------------------*/
