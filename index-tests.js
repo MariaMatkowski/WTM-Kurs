@@ -155,7 +155,6 @@ document.write('Sie konnten sich ' + ergebnis + ' Ziffern merken');
 /*------------------Objekteigenschaften ändern------------*/
 
 //HTML
-<script>
 var wave = new Segelboot("blau-weiß",35,8);
 
 document.write("Farbe: " + wave.farbe + "<br>Geschwindigkeit: " + wave.geschwindigkeit + "<br>Personen: " + wave.personen + "<br>");
@@ -166,9 +165,8 @@ wave.lackieren("Blau");
 
 document.write("Farbe: " + wave.farbe + "<br>Geschwindigkeit: " + wave.geschwindigkeit + "<br>Personen: " + wave.personen);
 
-</script>
 
-
+//JS
 function Segelboot(f,g,h) {
     this.farbe = f;
     this.geschwindigkeit = g;
