@@ -201,4 +201,18 @@ document.cookie = "No4Cookie=24; secure";   //gilt nur für verschlüsselte Verb
 //</script>
 //</body>
 
+/*--------------------- prüft ob Browser Cookies erlaubt ---------------------*/
+
+document.cookie = "No1Cookie=42";
+
+if(document.cookie.indexOf("No1Cookie=42") != -1)
+    alert("Browser arbeitet mit Cookies");
+else 
+    alert("Browser arbeitet nicht mit Cookies");
+
+var zeit = new Date(1);
+document.cookie ="No1Cookie=; expires=" + zeit.toUTCString();
+
+/*----------------------------------------*/
+
 
