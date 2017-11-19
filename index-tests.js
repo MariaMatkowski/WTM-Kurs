@@ -213,11 +213,22 @@ else
 var zeit = new Date(1);
 document.cookie ="No1Cookie=; expires=" + zeit.toUTCString();
 
+
 /*--------------------- DataLayer event push code in Button Link !!! ----------------*/
 
 <a href="#" name="button_1" onclick="dataLayer.push({'event':'button1-click'});" >Button 1</a>
 //link now calls the push API  > combine with event tag
 
-/*-------------------------------*/ 
 
+/*------------------ dynamically pushing data layer variables ------------*/ 
+// e.g values entered or selected in a form, metadata of a video, color of product etc.
+//replace the dlv in the data layer with:
+
+dataLayer.push({
+    'variable_name':'variable_value',    //eg {'color': 'red'}
+    'conversion_value': 50,
+    'event':'customize_car'
+});  
+
+/*--------------------------*/
 
