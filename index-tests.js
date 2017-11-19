@@ -213,6 +213,11 @@ else
 var zeit = new Date(1);
 document.cookie ="No1Cookie=; expires=" + zeit.toUTCString();
 
-/*----------------------------------------*/
+/*--------------------- DataLayer event push code in Button Link !!! ----------------*/
+
+<a href="#" name="button_1" onclick="dataLayer.push({'event':'button1-click'});" >Button 1</a>
+//link now calls the push API  > combine with event tag
+
+/*-------------------------------*/ 
 
 
