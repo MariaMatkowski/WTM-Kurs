@@ -230,5 +230,7 @@ dataLayer.push({
     'event':'customize_car'
 });  
 
+//!!! pushing variable with same name will overwrite existing variable
+
 /*--------------------------*/
 
