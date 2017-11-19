@@ -184,7 +184,21 @@ function bootAusgeben() {
     return "Farbe: " + this.farbe + "Geschwindigkeit: " + this.geschwindigkeit + "Personen: " + this.personen;
 }
 
-/*-------------------------------------------*/
+/*-------------------- Cookie erstellen -----------------------*/
+//<body>
+// ...
+//<script>
 
+document.cookie = "No1Cookie=21";
+
+var zeit = new Date();
+zeit.setTime(zeit.getTime()+24*60*60*1000);    //24 Stunden gültig
+document.cookie = "No2Cookie=22;expires=" + zeit.toUTCString();  //Formatierung in UTC
+
+document.cookie = "No3Cookie=23; path=/";  //cookie gilt für ganze domain und nicht nur für aktuellen index.js-Pfad
+document.cookie = "No4Cookie=24; secure";   //gilt nur für verschlüsselte Verbindungen
+
+//</script>
+//</body>
 
 
