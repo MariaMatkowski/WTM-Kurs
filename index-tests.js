@@ -232,5 +232,19 @@ dataLayer.push({
 
 //!!! pushing variable with same name will overwrite existing variable
 
-/*--------------------------*/
+/*----------------- PHP Cookie ---------*/
 
+//<?php
+
+add_action( 'init', 'setting_my_first_cookie' );
+
+
+function setting_my_first_cookie() {
+
+ setcookie( $v_username, $v_value, 30 * DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN );
+
+}
+
+//?>
+
+/*-------------------------------------------*/
