@@ -201,6 +201,17 @@ document.cookie = "No4Cookie=24; secure";   //gilt nur für verschlüsselte Verb
 //</script>
 //</body>
 
+/*------Datum gleich in Monaten angeben -------*/
+
+datum=new Date; //datum wird zur neuen Instanz des Date-Objektes 
+datum.setMonth(datum.getMonth()+3); //Monat wird um 3 erhöht -> in 3 Monaten läuft Cookie ab
+document.cookie="dagewesen=ja; expires=" + datum.toGMTString(); //Cookie schreiben 
+
+
+/*------ hm, vielleicht dynamische Cookie-Namensgebung? -------*/
+
+document.cookie="name=" + document.forms[0].elements[2].value+ "; expires=" + datum.toGMTString() 
+
 /*--------------------- prüft ob Browser Cookies erlaubt ---------------------*/
 
 document.cookie = "No1Cookie=42";
