@@ -278,15 +278,15 @@ function getCookie(cname) {
 
 function getCookie(cname) {              //Cookie-Name wird zum Parameter
         var name = cname + "=";           //Text-Variable, die nach C-Namen sucht
-        var decodedCookie = decodeURIComponent(document.cookie);   //siehe *
-        var ca = decodedCookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
+        var decodedCookie = decodeURIComponent(document.cookie);   //siehe *, um Cookies mit Special-Charakter ($) zu handeln
+        var ca = decodedCookie.split(';');                   //in ein Array namens ca splitten
+        for(var i = 0; i <ca.length; i++) {             // loop through ca array      
+            var c = ca[i];                               // read out each value c
             while (c.charAt(0) == ' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
+            if (c.indexOf(name) == 0) {                         //if cookie is found
+                return c.substring(name.length, c.length);       // return value of cookie
             }
         }
         return "";
@@ -297,6 +297,79 @@ function getCookie(cname) {              //Cookie-Name wird zum Parameter
 
 // setCookie('test','1');
 //getCookie('test');
+
+
+//check if cookie is set. Yes > display username; No > prompt and asks for Name.
+function checkCookie() {
+        var username = getCookie("username");
+        if (username != "") {
+            alert("Welcome again " + username);
+        } else {
+            username = prompt("Please enter your name:", "");
+            if (username != "" && username != null) {
+                setCookie("username", username, 365);
+            }
+        }
+    } 
+
+/*----------------------------- cookieApp.html / https://www.youtube.com/watch?v=5ttpghXjG0g -----------------------*/
+
+/*<!Doctype html> 
+<html>
+    <head>
+        <script> */
+
+        var myCookies = {};
+
+        function saveCookies() 
+        {
+            myCookies["_user"] = document.getElementById("user").value;
+            myCookies["_uage"] = document.getElementById("age").value;
+            //start reusable code
+            document.cookie = "";   //cookie leeren
+            var expires = new Date(Date.now()+60*1000).toString();  //60 Sek.
+            var cookieString = "";             //to store each cookie
+            for (var key in myCookies)
+                { 
+                    cookieString = key + "=" + myCookies[key] +";"+expires+";";    //create cookiestring
+                    document.cookie = cookieString;   //loop oder each value save string out to the document
+                }
+            //end reusable code
+            document.getElementById("out").innerHTML=document.cookie;
+        }
+
+        function loadCookies()
+        {
+            //start reusable code
+            myCookies = {};           //array
+            var kv = document.cookie.split(";");  //kv = keyvalue
+            for (var id in kv)              //id is key in pairs
+            {
+                var cookie = kv[id].split("=");   //split by = sign    > 0 is name, 1 is value
+                myCookie[cookie[0].trim()] = cookie[1];
+            }
+            //end reusable code
+            document.getElementById("user").value = myCookies["_user"];
+            document.getElementById("age").value =  myCookies["_uage"];
+
+        }
+
+
+        /*
+        </script>
+    </head>
+
+    <body>
+    User:<input type="text" id="user">
+    Age:<input type="text" id="age">
+    <button onclick="saveCookies">Save to Cookies </button>
+    <button onclick="loadCookies">Load from Cookies </button>
+    <p id="out"></p> 
+    </body>
+</html>*/
+
+
+
 
 /*--------------------- DataLayer event push code in Button Link !!! ----------------*/
 
