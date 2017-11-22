@@ -225,9 +225,17 @@ document.cookie="dagewesen=ja; expires=" + datum.toGMTString(); //Cookie schreib
 
 document.cookie="name=" + document.forms[0].elements[2].value+ "; expires=" + datum.toGMTString() 
 
-/*----------------------create a cookie with JS ---------------------*/
+/*----------------------create a cookie with JS directly ---------------------*/
 
 document.cookie = "username=John Doe; expires=Thu, 18 Dec 2017 12:00:00 UTC; path=/"; 
+
+//dann auslesen
+var x = document.cookie;  //gibt alle cookies in einem String aus: c1 = value; c2 = value;  usw.
+
+//löschen
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";  //manchmal muss path angegeben werden
+
+//find the value of specified cookie > write a JavaScript function that searches for the cookie value in the cookie string
 
 /*------------------------------ Cookie mit jQuery schreiben  ----------------------------------*/
 
@@ -245,11 +253,50 @@ $.cookie("test", 1, {       //Name, value
                             //require a secure protocol (defaults to false).
  });
 
- /*------------------ dann Cookie-Wert lesen --------------------------------*/
+ //dann Cookie-Wert lesen:
 
  var cookieValue = $.cookie("test");
 
  var cookieValue = $.cookie("test", { path: '/foo' });    //wenn Cookie im Verzeichnis foo erstellt wurde 
+
+ $.removeCookie('nameofcookie', { path: '/' });    //beim Löschen aus dem richtigen Pfad löschen!!!
+
+ /* -------------------schöne JS StakeOverflow Funktionen um mehrere Cookies zu erstellen -----------------*/
+
+ function setCookie(cname, cvalue, exdays) {
+    var days = new Date();
+    days.setTime(days.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + days.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+}
+
+function getCookie(cname) {
+    var keyValue = document.cookie.match('(^|;) ?' + cname + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}
+//falls das oben nicht funktioniert:
+
+function getCookie(cname) {              //Cookie-Name wird zum Parameter
+        var name = cname + "=";           //Text-Variable, die nach C-Namen sucht
+        var decodedCookie = decodeURIComponent(document.cookie);   //siehe *
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    } 
+
+// * Encoded URI: https%3A%2F%2Fw3schools.com%2Fmy%20test.asp%3Fname%3Dst%C3%A5le%26car%3Dsaab
+// >>> Decoded: https://w3schools.com/my test.asp?name=ståle&car=saab  
+
+// setCookie('test','1');
+//getCookie('test');
 
 /*--------------------- DataLayer event push code in Button Link !!! ----------------*/
 
@@ -272,18 +319,13 @@ dataLayer.push({
 /*----------------- PHP Cookie ---------*/
 
 //<?php
-
 add_action( 'init', 'setting_my_first_cookie' );
-
 
 function setting_my_first_cookie() {
 
  setcookie( $v_username, $v_value, 30 * DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN );
 
 }
-
 //?>
-
-
 
 /*---------------------------------------------------------------------------*/
