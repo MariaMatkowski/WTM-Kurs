@@ -184,6 +184,19 @@ function bootAusgeben() {
     return "Farbe: " + this.farbe + "Geschwindigkeit: " + this.geschwindigkeit + "Personen: " + this.personen;
 }
 
+
+/*--------------------- prüft ob Browser Cookies erlaubt ---------------------*/
+
+document.cookie = "No1Cookie=42";
+
+if(document.cookie.indexOf("No1Cookie=42") != -1)
+    alert("Browser arbeitet mit Cookies");
+else 
+    alert("Browser arbeitet nicht mit Cookies");
+
+var zeit = new Date(1);
+document.cookie ="No1Cookie=; expires=" + zeit.toUTCString();
+
 /*-------------------- Cookie erstellen -----------------------*/
 //<body>
 // ...
@@ -212,18 +225,31 @@ document.cookie="dagewesen=ja; expires=" + datum.toGMTString(); //Cookie schreib
 
 document.cookie="name=" + document.forms[0].elements[2].value+ "; expires=" + datum.toGMTString() 
 
-/*--------------------- prüft ob Browser Cookies erlaubt ---------------------*/
+/*----------------------create a cookie with JS ---------------------*/
 
-document.cookie = "No1Cookie=42";
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2017 12:00:00 UTC; path=/"; 
 
-if(document.cookie.indexOf("No1Cookie=42") != -1)
-    alert("Browser arbeitet mit Cookies");
-else 
-    alert("Browser arbeitet nicht mit Cookies");
+/*------------------------------ Cookie mit jQuery schreiben  ----------------------------------*/
 
-var zeit = new Date(1);
-document.cookie ="No1Cookie=; expires=" + zeit.toUTCString();
+$.cookie("test", 1, {       //Name, value
+    expires : 10,           //expires in 10 days
+ 
+    path    : '/',          //The value of the path attribute of the cookie 
+                            //(default: path of page that created the cookie).
+ 
+    domain  : 'jquery.com',  //The value of the domain attribute of the cookie
+                            //(default: domain of page that created the cookie).
+ 
+    secure  : true          //If set to true the secure attribute of the cookie
+                            //will be set and the cookie transmission will
+                            //require a secure protocol (defaults to false).
+ });
 
+ /*------------------ dann Cookie-Wert lesen --------------------------------*/
+
+ var cookieValue = $.cookie("test");
+
+ var cookieValue = $.cookie("test", { path: '/foo' });    //wenn Cookie im Verzeichnis foo erstellt wurde 
 
 /*--------------------- DataLayer event push code in Button Link !!! ----------------*/
 
@@ -258,8 +284,6 @@ function setting_my_first_cookie() {
 
 //?>
 
-/*----------------------create a cookie with JS ---------------------*/
 
-document.cookie = "username=John Doe; expires=Thu, 18 Dec 2017 12:00:00 UTC; path=/"; 
 
 /*---------------------------------------------------------------------------*/
