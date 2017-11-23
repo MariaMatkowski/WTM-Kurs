@@ -10,11 +10,11 @@
             myCookies["uage"] = document.getElementById("age").value;
             //start reusable code
             document.cookie = "";   //cookie leeren
-            var expiresAttrib = new Date(Date.now()+60*1000).toString();  //60 Sek.
+            var expires = new Date(Date.now()+600*1000).toString();  //60 Sek.
             var cookieString ="";             //to store each cookie
             for (var key in myCookies)
                 { 
-                    cookieString = key + "=" + myCookies[key] +";"+ expiresAttrib ";";    //create cookiestring
+                    cookieString = key + "=" + myCookies[key] +";"+ expires + ";";    //create cookiestring
                     document.cookie = cookieString;   //loop oder each value save string out to the document
                 }
             //end reusable code
@@ -39,8 +39,8 @@
     </head>
 
     <body>
-    <p>User:</p><input type="text" id="user">
-    <p>Age:</p><input type="text" id="age">
+    User:<input type="text" id="user">
+    Age:<input type="text" id="age">
     <button onclick="saveCookies()">Save to Cookies</button>
     <button onclick="loadCookies()">Load from Cookies</button>
     <p id="out"></p> 
