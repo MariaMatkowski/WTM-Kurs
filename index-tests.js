@@ -313,7 +313,7 @@ function checkCookie() {
     } 
 
 /*----------------------------- cookieApp.html / https://www.youtube.com/watch?v=5ttpghXjG0g -----------------------*/
-
+// hat nicht funktioniert!!!
 /*<!Doctype html> 
 <html>
     <head>
