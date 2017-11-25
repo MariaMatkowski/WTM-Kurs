@@ -218,7 +218,7 @@ document.cookie = "No4Cookie=24; secure";   //gilt nur für verschlüsselte Verb
 
 datum=new Date; //datum wird zur neuen Instanz des Date-Objektes 
 datum.setMonth(datum.getMonth()+3); //Monat wird um 3 erhöht -> in 3 Monaten läuft Cookie ab
-document.cookie="dagewesen=ja; expires=" + datum.toGMTString(); //Cookie schreiben 
+document.cookie="dagewesen=ja; expires=" + datum.toGMTString(); //Cookie schreiben - "expires" für IE, moderne Browser nutzen "max-age"
 
 
 /*------ hm, vielleicht dynamische Cookie-Namensgebung? -------*/
@@ -414,8 +414,8 @@ Set-Cookie: CookieName=Wert; path=www.example.com/; HttpOnly; secure
 <input type="button" value="save Cookie" onclick="setCookie()" />
 <input type="button" value="get Cookie" onclick="getCookie()" />
 <script>*/
-    function saveCookie() {
-        document.cookie = "color=red"
+    function setCookie() {
+        document.cookie = "color=red; max-age= " + (60*60*24*30)+ ";"
     } 
 
     function getCookie() {
