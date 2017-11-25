@@ -401,4 +401,40 @@ function setting_my_first_cookie() {
 }
 //?>
 
-/*---------------------------------------------------------------------------*/
+/*---------------------------- Set & Get Cookie ---------------------------*/
+
+/*html
+<input type="button" value="save Cookie" onclick="setCookie()" />
+<input type="button" value="get Cookie" onclick="getCookie()" />
+<script>*/
+    function saveCookie() {
+        document.cookie = "color=red"
+    } 
+
+    function getCookie() {
+        if (document.cookie.length != 0)
+          {
+              var nameValueArray = document.cookie.split("=");
+              alert("Name: " + nameValueArray[0] + " Value: " + nameValueArray[1]);
+          }  
+        else {
+            alert("Cookie not found");
+        } 
+    }
+
+
+//</script>
+
+
+/*------------------ get actual date -----------------*/
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+document.write(today);
+
+
+/*----------------------*/
