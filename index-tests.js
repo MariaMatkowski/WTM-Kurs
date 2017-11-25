@@ -401,6 +401,13 @@ function setting_my_first_cookie() {
 }
 //?>
 
+/* ----------- Cookie absichern, damit es nicht unterwegs von jemandem ausgelesen wird ----*/
+
+Set-Cookie: CookieName=Wert; path=www.example.com/; HttpOnly; secure
+//mit der genauen Pfadangabe werden subdomains ausgeschlossen...
+
+
+
 /*---------------------------- Set & Get Cookie ---------------------------*/
 
 /*html
