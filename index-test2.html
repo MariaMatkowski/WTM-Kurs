@@ -1,9 +1,8 @@
 <html>
     <head>
     </head>
-    <body>
-
-        <!-- form für Local Storage oder Cookie -->
+    <body onload="init()">
+            
             <form name="myform" method="post" action="/actionpage.php" onsubmit="return storeValues(this);">
                 <fieldset>
                     <label for="name">Name:</label>
@@ -62,11 +61,27 @@
                     <!-- End Background Preference Selection -->
             
                 <h3>What is your actual problem or roadblocker?</h3>
-                    <input type="text" size="32" rows="6"  name="missing" value><br>
+                    <input type="text" size="32" rows="6"  name="messsage" value><br>
             
                 </fieldset>
                     <input type="submit" value="Submit"> 
                 </form>
+            
+                <table id="regtable">
+                    <thead>
+                        <tr>
+                           <th>First Name</th>
+                           <th>Last Name</th>
+                           <th>Roll Number</th>
+                            <th>Subject</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                    
+                    </tbody>
+                 </table>
+            
+            
             
                     <!-- Start Local Storage Name and Mail -->
                 <script>
@@ -108,6 +123,8 @@
                                 
                 </script>
                     <!-- End Cookie Buttons Code -->
+            
+                <script src="main.js"></script>
                            
     </body>
 </html>
