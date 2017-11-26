@@ -1,9 +1,9 @@
-<!-- form für Local Storage oder Cookie -->
-
 <html>
     <head>
     </head>
     <body>
+
+        <!-- form für Local Storage oder Cookie -->
             <form name="myform" method="post" action="/actionpage.php" onsubmit="return storeValues(this);">
                 <fieldset>
                     <label for="name">Name:</label>
@@ -11,8 +11,8 @@
                     <label for="email">E-Mail:</label>
                     <span><input type="text" size="32" name="email" id="email" value></span>
             
-                    <input type="button" value="save Values" onclick="saveValues()" />
-                    <input type="button" value="load Values" onclick="loadValues()" /><br>
+                    <input type="button" value="save Local Storage" onclick="saveValues()" />
+                    <input type="button" value="load Local Storage" onclick="loadValues()" /><br>
             
                     <label for="female">Female</label>        
                     <input type="radio" name="gender" id="female" value="female" checked>
