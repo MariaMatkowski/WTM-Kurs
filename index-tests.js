@@ -444,30 +444,4 @@ today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
 
 
-/*------------ Form ----------*/
 
-<form name="myform" method="post" action="/javascript/getcookie/" onsubmit="return storeValues(this);">
-<fieldset>
-    <label>Vorname:</label>
-    <span><input type="text" size="32" name="vorname" value></span>
-    <label>Nachname:</label>
-    <span><input type="text" size="32" name="nachname" value></span>
-    <label>E-Mail:</label>
-    <span><input type="text" size="32" name="email" value></span>
-</fieldset>
-<fieldset>
-    <input type="radio" name="gender" value="male" checked> Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other
-</fieldset>
-<select name="interests">
-    <label>Interessen</label>
-    <option value="onlineM">Online Marketing</option>
-    <option value="busDev">Business Development</option>
-    <option value="kpi">Company KPIs</option>
-    <option value="custData">Customer Data</option>
-    <option value="webdesign">Webdesign</option>
-    <option value="abtesting">AB-Testing and Website Optimization</option>
-</select>
-<input type="submit" value="Submit"> 
-</form>
