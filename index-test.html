@@ -1,41 +1,65 @@
 <html>
     <head>
+
+        <style>
+        #table {
+            margin: 10px;
+            margin-top: 20px;
+            }
+
+        thead {background: rgb(233, 188, 233);}
+
+        td {background: white;}
+
+        table {border: 1px solid black;}
+
+        th {padding: 10px 15px;}
+
+        .button, #gender{margin-top: 15px;}
+
+    	#gender label {padding: 0 16px;}
+        
+        </style>
+
+
     </head>
     <body onload="init()">
-            
-            <form name="myform" method="post" action="/actionpage.php" onsubmit="return storeValues(this);">
+            <header class="headerbar top"><h1>My User Form</h1></header>
+            <!--<form name="myform" method="post" action="/actionpage.php" onsubmit="return storeValues(this);">-->
                 <fieldset>
                     <label for="name">Name:</label>
                     <span><input type="text" size="32" name="name" id="name" value></span>
                     <label for="email">E-Mail:</label>
                     <span><input type="text" size="32" name="email" id="email" value></span>
             
-                    <input type="button" value="save Local Storage" onclick="saveValues()" />
-                    <input type="button" value="load Local Storage" onclick="loadValues()" /><br>
-            
+                    <input type="button" value="save Local Storage" class="button" onclick="saveValues()" />
+                    <input type="button" value="load Local Storage" class="button"onclick="loadValues()" /><br>
+                    <div id="gender">
                     <label for="female">Female</label>        
                     <input type="radio" name="gender" id="female" value="female" checked>
                     <label for="male">Male</label>
                     <input type="radio" name="gender" id="male" value="male">
                     <label for="other">Other</label>        
                     <input type="radio" name="gender" id="other" value="other"><br>
+                    </div>
             
-                <h3>Which topics are you interested in?</h3>    
-                    <label for="onlineM"><input type="checkbox" name="interests" value="onlineM">Online Marketing</label><br>
+                    <div id="interests">
+                    <h3>Which topics are you interested in?</h3>    
+                    <label for="onlineM"><input type="checkbox" name="interests" value="onlineM">Online Marketing</label><br>     
                     <!--<label for="busDev"><input type="checkbox" name="interests" value="busDev">Business Development</label><br>-->
                     <label for="kpi"><input type="checkbox" name="interests" value="kpi">Company KPIs</label><br>
                     <label for="custData"><input type="checkbox" name="interests" value="custData">Customer Data</label><br>
                     <label for="webdesign"><input type="checkbox" name="interests" value="webdesign">Webdesign</label><br>
                     <label for="abtesting"><input type="checkbox" name="interests" value="abtesting">AB-Testing and Website Optimization</label><br>
-            
+                    </div>
                     <!-- Start Background Preference Selection -->
             
                     <h3>Which is your favorite Background</h3>
                     <select id="myTheme" onchange="setColorCookie()">
                             <option value="Select Color">Select your color</option>
-                            <option value="blue">mountains</option>
-                            <option value="green">green</option>
-                            <option value="black">lake</option>
+                            <option value="lightblue">blue</option>
+                            <option value="lightgreen">green</option>
+                            <option value="darksalmon">orange</option>
                     </select>
                     <script type="text/javascript">
                             window.onload = function () {
@@ -43,6 +67,7 @@
                                    var nameValueArray = document.cookie.split("=");
                                    document.getElementById("myTheme").value = nameValueArray[1];
                                    document.bgColor = nameValueArray[1];
+                                   //document.bgImage = nameValueArray[1];
                                }
                             }
                             function setColorCookie() {
@@ -50,30 +75,34 @@
                                 if(selectedColor != "Select Color") 
                                 {
                                     document.bgColor = selectedColor;
+                                    //document.bgImage = selectedColor;
                                     document.cookie = "color=" + selectedColor + ";expires=Fri, 8 Dec 2017 1:00:00 UTC;";
-                                }
+                                }  //bei color= > background-image=
                             }
                     </script><br>
             
-                        <input type="button" value="save Cookie" onclick="setColorCookie()" />
-                        <input type="button" value="get Cookie" onclick="getCookie()" />
+                        <input type="button" value="save Cookie" class="button" onclick="setColorCookie()" />
+                        <input type="button" value="get Cookie"  class="button" onclick="getCookie()" />
             
                     <!-- End Background Preference Selection -->
             
                 <h3>What is your actual problem or roadblocker?</h3>
-                    <input type="text" size="32" rows="6"  name="messsage" value><br>
+                    <input type="text" size="32" rows="6"  name="messsage" id="message" value><br>
             
                 </fieldset>
-                    <input type="submit" value="Submit"> 
-                </form>
+                    <label for="submit"></label>
+                    <button id="submit" onclick="onSubmitPressed()">Submit</button>
+                    <!--<input type="submit" class="button" value="Submit"> -->
+                <!--</form>-->
             
-                <table id="regtable">
+                <table id="table">
                     <thead>
                         <tr>
-                           <th>First Name</th>
-                           <th>Last Name</th>
-                           <th>Roll Number</th>
-                            <th>Subject</th>
+                            <th>Name</th>
+                            <th>E-Mail</th>
+                            <th>Gender</th>
+                            <th>Interests</th>
+                            <th>Message</th>
                         </tr>
                     </thead>
                      <tbody>
