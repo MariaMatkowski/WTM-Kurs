@@ -5,7 +5,7 @@ var inputArray = [];
 
 function init () {
     if (localStorage.userRecord) {
-        inputArray = JSON.parse(localStorage.userRecord);  //charged from json notation to array
+        inputArray = JSON.parse(localStorage.userRecord);  //changed from json notation to array
         for(var i=0; i < inputArray.length; i++){
            /*var name = inputArray[i].name;
             var email = inputArray[i].email;
