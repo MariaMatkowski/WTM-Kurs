@@ -508,4 +508,15 @@ function readCookie(name) { 
     } 
 //</script>
 
-/*-----------------------------*/
+/*-------------- creating global objects with windows and variables as properties instead of global variables ------------*/
+
+window.MyLib = {}; // global Object container; don't use var
+MyLib.value = 1;
+MyLib.increment = function() { MyLib.value++; }
+MyLib.show = function() { alert(MyLib.value); }
+
+MyLib.value=6;
+MyLib.increment();
+MyLib.show(); // alerts 7
+
+/* -------------- */
