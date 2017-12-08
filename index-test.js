@@ -482,6 +482,15 @@ if (gaUserCookie != undefined) { 
 
 
 //in GTM script below with "custom HTML"-tag firing on all pages (or just landing pages)
+
+/* What the below Code is doing:
+- Creating a data layer macro to hold the userId value
+- Add an Analytics tag to set the custom dimension in Universal Analytics passing in the userId macro you created above.  #
+  You can use a tag type of event to do this. You’ll need to populate the event category and event action.  
+  Be sure to set the non-interaction to ‘True’ to avoid artificially decreasing bounce rate.
+- Set a firing rule for the tag of:  {{event}} equals setUserId
+*/
+
 //<script type="text/javascript"> 
 function readCookie(name) { 
       name += '='; 
@@ -498,3 +507,5 @@ function readCookie(name) { 
       } 
     } 
 //</script>
+
+/*-----------------------------*/
