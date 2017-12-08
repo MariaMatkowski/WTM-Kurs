@@ -479,3 +479,22 @@ if (gaUserCookie != undefined) { 
     } catch(e) {}
    }  
 }  
+
+
+//in GTM script below with "custom HTML"-tag firing on all pages (or just landing pages)
+//<script type="text/javascript"> 
+function readCookie(name) { 
+      name += '='; 
+      for (var ca = document.cookie.split(/;\s*/), i = ca.length - 1; i >= 0; i--) 
+      if (!ca[i].indexOf(name)) 
+      return ca[i].replace(name, ''); 
+    } 
+    var gaUserCookie = readCookie("_ga"); 
+    if (gaUserCookie != undefined)  { 
+      var cookieValues = gaUserCookie.split('.');
+      if (cookieValues.length > 2 )  { 
+        var userId = cookieValues[2]; 
+        dataLayer.push({'event':'setUserId', 'userId': userId}); 
+      } 
+    } 
+//</script>
