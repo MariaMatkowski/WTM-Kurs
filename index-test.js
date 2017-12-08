@@ -443,5 +443,39 @@ var yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
 
+/*----------------- set UserID as custom variable using GA ---------------*/
 
+/*Voraussetzung: 
+- You don’t already have a custom variable (custom dimension in Universal) in the first variable slot.  If you do, just modify the slot # to the first available slot.
+- add custom dimension in UA (if dimension1 exists, then change in Code "dimension1" to "dimensionX")
+*/
 
+/*create a cookie that
+- attempt to read the _utma cookie value
+- make sure that Cookie has data
+- split the cookie value into an Array
+- extract UserID from that array (3 slot in UA)
+- assign user ID as a custom dimension in UA
+- Fires an event with a category of ‘Custom Variables’ and action of ‘Set UserId’ with non-interaction set to true
+*/
+
+function readCookie(name) { 
+  name += '='; 
+  for (var ca = document.cookie.split(/;\s*/), i = ca.length - 1; i >= 0; i--) 
+  if (!ca[i].indexOf(name)) 
+    return ca[i].replace(name, ''); 
+} 
+
+var gaUserCookie = readCookie("_ga"); 
+
+if (gaUserCookie != undefined) { 
+  var cookieValues = gaUserCookie.split('.');
+  if (cookieValues.length > 2 ) 
+  { 
+    var userId = cookieValues[2]; 
+    try {
+      ga('set', 'dimension1', userId);
+      ga('send', 'event', 'Custom Variables', 'Set UserId', {'nonInteraction': 1});
+    } catch(e) {}
+   }  
+}  
