@@ -519,4 +519,27 @@ MyLib.value=6;
 MyLib.increment();
 MyLib.show(); // alerts 7
 
-/* -------------- */
+/* ------- Implementing Data Layer------- */
+var dataLayer = window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  key: 'value'
+});
+
+/* ------------- in HTML --------------*/
+
+
+
+/* --- Order Tags in HEAD ------------*/ 
+
+/*
+- jQuery or Javascript used in Optimize experiments (min)
+- DataLayer + Cookies Code  (initialization of variables needed for targeting)
+- UA-Opt out
+- "Hide Experiment-Flickering"-Code (GTM-Optimize ID)
+- modified analytics code with Optimize plugin (GTM-Optimize ID)
+- GTM (mit FB Pixel, Remarketing und Conversion Snippets)
+- other JS, Trackers and Ad tags 
+- Inspectlet / Fullstory... */
+
+
+
