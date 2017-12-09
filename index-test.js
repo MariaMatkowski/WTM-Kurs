@@ -526,12 +526,13 @@ dataLayer.push({
 });
 
 /* ------------- in HTML --------------*/
+//modify button to call push() API - push just when user interacts!
+
+<a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});" >Button 1</a> 
+
+/* ------------------ HEAD ------------------
 
 
-
-/* --- Order Tags in HEAD ------------*/ 
-
-/*
 - jQuery or Javascript used in Optimize experiments (min)
 - DataLayer + Cookies Code  (initialization of variables needed for targeting)
 - UA-Opt out
@@ -539,7 +540,28 @@ dataLayer.push({
 - modified analytics code with Optimize plugin (GTM-Optimize ID)
 - GTM (mit FB Pixel, Remarketing und Conversion Snippets)
 - other JS, Trackers and Ad tags 
-- Inspectlet / Fullstory... */
+- Inspectlet / Fullstory... 
+
+ ---------------------- BODY ------------------
+
+
+ - Cookie: "set a UserID as a custom variable using the Google Analytics cookie
+ </body>
+ */
+
+ /* ------------- dynamically pushes of DLVs to the dataLayer (like values of form fields, meta data of site or video, choosen color pf product etc.)--------------*/ 
+
+ //push multiple variables with link event handler
+
+ <a href="#"
+    name="color"
+    onclick="dataLayer.push({
+      'color': 'red',
+      'conversionValue': 50,
+      'event': 'customizeCar'});">Customize Color</a>
+
+ 
+
 
 
 
