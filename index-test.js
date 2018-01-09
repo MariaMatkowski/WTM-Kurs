@@ -560,8 +560,26 @@ dataLayer.push({
       'conversionValue': 50,
       'event': 'customizeCar'});">Customize Color</a>
 
- 
+ /*----------- parsing cookie values -----------*/
 
+ // 1. store cookie in variable
+ var cookie = document.cookie;
 
+ // 2. turn string into Array with key-value pairs/ elements
+ cookie.split(";")   //["k=v", "k=v"]
 
+ // 3. For loop with a)remove whitespace, b) split kv-strings on "=" c) store k-v pairs on objects
+ var cookieArr = cookie.split(";")
+ var cookieObj = {}
 
+for (var i=0; i < cookieArr.lenght; i++) {  
+    //trim
+    var cookieKV = cookieArr[i];
+    cookieKV = cookieKV.trim();
+    //split on "="
+    var cookieKVArr = cookieKV.split("=");   //cookieKVArr == ["key"; "value"]
+    //store keyvalue on Object
+    cookieObj[cookieKVArr[0]] = cookieKVArr[1];  //will be assigned to Object/ set properties on Obeject, want it to be the array
+}
+
+/*------------------------------------*/
