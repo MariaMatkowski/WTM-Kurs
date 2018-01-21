@@ -583,3 +583,7 @@ for (var i=0; i < cookieArr.lenght; i++) {
 }
 
 /*------------------------------------*/
+
+var ihrName = prompt("Bitte Ihren Namen eingeben:");
+alert("Sie haben eingegeben:\n" + ihrName);
+
